@@ -64,7 +64,6 @@ button {
   width: 100%;
   z-index: 100;
   padding: 20px 0;
-
   background: linear-gradient(
     var(--background),
     rgba(243, 241, 236, 0.2),
@@ -74,7 +73,6 @@ button {
     rgba(243, 241, 236, 0.2),
     transparent
   );
-
   transition: transform 0.4s ease, background 0.3s ease;
 }
 
@@ -171,17 +169,12 @@ button {
 }
 
 .my-name {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px; */
   text-align: center;
   width: 100%;
   margin: 120px 0 0;
   font-size: clamp(54px, 7vw, 104px);
-  line-height: 0.9;
-  letter-spacing: -0.065em;
   line-height: 1;
+  letter-spacing: -0.065em;
   color: var(--my-name-color);
 }
 
@@ -192,10 +185,6 @@ button {
   text-transform: capitalize;
   font-weight: 600;
 }
-
-/* .my-name .space {
-  width: 20px;
-} */
 
 .hero {
   min-height: 90vh;
@@ -329,10 +318,12 @@ button {
   font-size: 42px;
   cursor: pointer;
 }
+
 .hero-circle span:hover {
   transition: all 0.5s;
   transform: scale(1.15);
 }
+
 .hero-circle span:active {
   color: gold;
   transform: scale(1.17) skew(-15deg);
@@ -577,7 +568,11 @@ button {
       #77736b 50%,
       transparent 50.5%
     ),
-    linear-gradient(transparent 49.5%, #77736b 50%, transparent 50.5%);
+    linear-gradient(
+      transparent 49.5%,
+      #77736b 50%,
+      transparent 50.5%
+    );
   background-size: 45px 45px;
 }
 
@@ -663,24 +658,34 @@ button {
 }
 
 .email {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
   align-items: center;
   width: 100%;
-  font-size: clamp(18px, 3vw, 40px);
-  padding: 10px 20px;
-  background-color: rgba(119, 115, 107, 0.5);
-  box-shadow: 0 0 20px rgba(119, 115, 107, 0.85);
-  border: 1px solid #77736b;
-  border-radius: 35px;
-  transition: all 0.5s ease-in-out;
+  padding: 24px 0;
+  background: transparent;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: clamp(15px, 2.5vw, 32px);
+  transition: padding 0.4s ease, border-color 0.4s ease;
+}
+
+.email-number {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.email-text {
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
-.email span {
-  margin-left: 18px;
-  flex-shrink: 0;
-  font-size: 24px;
+.email-arrow {
+  margin-left: 20px;
+  font-size: 28px;
+  transition: transform 0.4s ease, color 0.4s ease;
 }
 
 .social-links {
@@ -775,6 +780,18 @@ button {
     padding-left: 14px;
     padding-right: 14px;
   }
+
+  .email:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: var(--accent);
+  }
+
+  .email:hover .email-arrow {
+    transform: translate(5px, -5px);
+    color: var(--accent);
+  }
+
   .social-links a:hover {
     transform: scale(1.15) translateY(-2.5px);
     color: #090909;
@@ -879,10 +896,6 @@ button {
     font-size: clamp(50px, 10vw, 72px);
   }
 
-  .my-name .space {
-    width: 12px;
-  }
-
   .hero {
     grid-template-columns: 1fr;
     padding-top: 100px;
@@ -978,7 +991,6 @@ button {
 
   .timeline-item {
     grid-template-columns: 1fr;
-
     gap: 12px;
   }
 
@@ -1083,16 +1095,11 @@ button {
     flex-wrap: nowrap;
   }
 
-  .my-name .space {
-    width: 8px;
-  }
-
   .hero {
     width: calc(100% - 32px);
     min-height: auto;
     padding-top: 70px;
     padding-bottom: 70px;
-
     gap: 15px;
   }
 
@@ -1224,7 +1231,6 @@ button {
 
   .timeline-item p {
     font-size: 13px;
-
     line-height: 1.75;
   }
 
@@ -1297,16 +1303,18 @@ button {
   }
 
   .email {
-    justify-content: space-between;
-    font-size: clamp(13px, 4vw, 18px);
-    padding: 12px 15px;
-    border-radius: 25px;
-    line-height: 1.4;
+    grid-template-columns: 32px 1fr auto;
+    padding: 18px 0;
+    font-size: clamp(12px, 4vw, 17px);
   }
 
-  .email span {
+  .email-number {
+    font-size: 9px;
+  }
+
+  .email-arrow {
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .social-links {
@@ -1342,10 +1350,6 @@ button {
   .my-name {
     font-size: 31px;
     gap: 2px;
-  }
-
-  .my-name .space {
-    width: 6px;
   }
 
   .hero {
@@ -1411,11 +1415,16 @@ button {
   }
 
   .email {
+    grid-template-columns: 25px 1fr auto;
     font-size: 11px;
   }
 
-  .email span {
-    font-size: 16px;
+  .email-number {
+    font-size: 8px;
+  }
+
+  .email-arrow {
+    font-size: 17px;
   }
 
   .social-links {
