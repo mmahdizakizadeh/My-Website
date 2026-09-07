@@ -1,5 +1,6 @@
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
+
 menuToggle.addEventListener("click", () => {
   const isOpen = navMenu.classList.toggle("active");
 
@@ -7,6 +8,7 @@ menuToggle.addEventListener("click", () => {
 });
 
 const navLinks = document.querySelectorAll(".nav-menu a");
+
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
@@ -17,6 +19,7 @@ navLinks.forEach((link) => {
 
 const themeToggle = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
+
 if (savedTheme === "dark") {
   document.body.classList.add("dark-mode");
 }
@@ -31,13 +34,16 @@ themeToggle.addEventListener("click", () => {
 
 const header = document.querySelector(".header");
 let lastScroll = 0;
+
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
+
   if (currentScroll > lastScroll && currentScroll > 150) {
     header.style.transform = "translateY(-100%)";
   } else {
     header.style.transform = "translateY(0)";
   }
+
   lastScroll = currentScroll;
 });
 
@@ -62,6 +68,7 @@ const observer = new IntersectionObserver(
     threshold: 0.12,
   }
 );
+
 revealElements.forEach((element) => {
   observer.observe(element);
 });
