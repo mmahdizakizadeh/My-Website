@@ -16,15 +16,16 @@
 }
 
 body.dark-mode {
-  --background: #151515;
-  --surface: #202020;
-  --text: #f2f0eb;
-  --muted: #9d9992;
-  --border: #383838;
-  --dark: #090909;
-  --my-name-color: rgba(242, 240, 235, 0.9);
-  --my-name-color-hover: rgba(242, 240, 235, 0.95);
+    --background: #151515;
+    --surface: #202020;
+    --text: #f2f0eb;
+    --muted: #9d9992;
+    --border: #383838;
+    --dark: #090909;
+    --my-name-color: rgba(242, 240, 235, 0.9);
+    --my-name-color-hover: rgba(242, 240, 235, 0.95);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -180,7 +181,8 @@ button {
     font-size: clamp(54px, 7vw, 104px);
     line-height: 1;
     letter-spacing: -0.065em;
-    color: var(--my-name-color);color: var(--my-name-color);
+    color: var(--my-name-color);
+    color: var(--my-name-color);
 }
 
 .my-name .first-name,
