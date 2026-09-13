@@ -137,6 +137,11 @@ button {
   color: var(--text-active);
 }
 
+.nav-menu a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
 .theme-toggle {
   display: flex;
   justify-content: center;
@@ -250,6 +255,11 @@ button {
 .button-dark {
   background: var(--text);
   color: var(--background);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .simple-link {
