@@ -362,12 +362,12 @@ a:focus-visible {
 }
 
 .hero-circle span {
-  position: relative;
+  display: inline-block;
   z-index: 1;
   color: var(--background);
   font-family: "Playfair Display", Georgia, serif;
   font-size: 42px;
-  transition: transform var(--transition), color var(--transition);
+  transition: transform var(--transition-slow), color var(--transition);
 }
 
 .hero-circle span:active {
