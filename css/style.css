@@ -179,7 +179,6 @@ button {
   line-height: 1;
   letter-spacing: -0.065em;
   color: var(--my-name-color);
-  color: var(--my-name-color);
 }
 
 .my-name .first-name,
