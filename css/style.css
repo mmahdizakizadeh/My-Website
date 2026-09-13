@@ -13,7 +13,19 @@
     --dark: #171717;
     --dark-text: #ffffff;
     --accent: #9a5b45;
+    --header-start: rgba(243, 241, 236, 1);
+    --header-middle: rgba(243, 241, 236, 0.65);
+    --header-end: rgba(243, 241, 236, 0);
+    --contact-background: #d6d1c7;
+    --project-background: #dedbd3;
+    --project-line: #77736b;
+    --project-dark: #222222;
+    --timeline-border: #3c3c3c;
+    --timeline-muted: #85817a;
+    --timeline-text: #aaa69e;
+    --transition-fast: 0.25s ease;
     --transition: 0.35s ease;
+    --transition-slow: 0.5s ease;
 }
 
 body.dark-mode {
@@ -25,6 +37,13 @@ body.dark-mode {
     --dark: #090909;
     --my-name-color: rgba(242, 240, 235, 0.9);
     --my-name-color-hover: rgba(242, 240, 235, 0.95);
+    --header-start: rgba(21, 21, 21, 1);
+    --header-middle: rgba(21, 21, 21, 0.65);
+    --header-end: rgba(21, 21, 21, 0);
+    --contact-background: #242321;
+    --project-background: #292929;
+    --project-line: #66635d;
+    --project-dark: #111111;
 }
 
 * {
@@ -44,8 +63,8 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     transition:
-        background 0.3s ease,
-        color 0.3s ease;
+        background-color var(--transition),
+        color var(--transition);
 }
 
 a {
@@ -55,6 +74,17 @@ a {
 
 button {
     font-family: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 .container {
@@ -70,17 +100,13 @@ button {
     z-index: 100;
     padding: 20px 0;
     background: linear-gradient(
-        var(--background),
-        rgba(243, 241, 236, 0.2),
-        rgba(243, 241, 236, 0.65),
-        rgba(243, 241, 236, 0.85),
-        rgba(243, 241, 236, 0.65),
-        rgba(243, 241, 236, 0.2),
-        transparent
+        var(--header-start),
+        var(--header-middle),
+        var(--header-end)
     );
     transition:
         transform 0.4s ease,
-        background 0.3s ease;
+        background-color var(--transition);
 }
 
 .navbar {
@@ -97,7 +123,9 @@ button {
     font-size: 30px;
     font-weight: 700;
     letter-spacing: -2px;
-    transition: all 0.5s ease-in-out;
+    transition:
+        transform var(--transition-slow),
+        color var(--transition-slow);
 }
 
 .logo span {
@@ -105,8 +133,8 @@ button {
 }
 
 .logo:active {
-    transition: all 0.1s ease;
     color: var(--text-active);
+    transition: color 0.1s ease;
 }
 
 .nav-menu {
@@ -123,7 +151,9 @@ button {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: all 0.5s ease-in-out;
+    transition:
+        transform var(--transition-slow),
+        color var(--transition-slow);
 }
 
 .nav-menu a::after {
@@ -141,11 +171,6 @@ button {
     color: var(--text-active);
 }
 
-.nav-menu a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 5px;
-}
-
 .theme-toggle {
     display: flex;
     justify-content: center;
@@ -159,7 +184,11 @@ button {
     color: var(--text);
     cursor: pointer;
     font-size: 30px;
-    transition: var(--transition);
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
 }
 
 .menu-toggle {
@@ -177,25 +206,47 @@ button {
     height: 1px;
     margin: 6px auto;
     background: var(--text);
-    transition: var(--transition);
+    transition:
+        transform var(--transition),
+        opacity var(--transition),
+        background-color var(--transition);
+}
+.menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
 }
 
 .my-name {
-    text-align: center;
     width: 100%;
     margin: 120px 0 0;
+    text-align: center;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: clamp(54px, 7vw, 104px);
+    font-weight: 700;
     line-height: 1;
     letter-spacing: -0.065em;
     color: var(--my-name-color);
 }
 
 .my-name .first-name,
-.last-name em {
-    cursor: pointer;
-    font-family: "Playfair Display", Georgia, serif;
-    text-transform: capitalize;
-    font-weight: 600;
+.my-name .last-name {
+    display: inline-flex;
+    gap: 0.12em;
+}
+
+.my-name .first-name > span,
+.my-name .last-name > span {
+    display: inline-block;
+    cursor: default;
+    font-family: inherit;
+    font-weight: inherit;
+    transition:
+        transform var(--transition),
+        color var(--transition),
+        text-shadow var(--transition);
 }
 
 .hero {
@@ -253,7 +304,10 @@ button {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: var(--transition);
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        color var(--transition);
 }
 
 .button-dark {
@@ -261,15 +315,13 @@ button {
     color: var(--background);
 }
 
-button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-}
-
 .simple-link {
     font-size: 13px;
     border-bottom: 1px solid var(--text);
     padding-bottom: 4px;
+    transition:
+        color var(--transition),
+        border-color var(--transition);
 }
 
 .simple-link span {
@@ -333,17 +385,9 @@ button:focus-visible {
     color: var(--background);
     font-family: "Playfair Display", Georgia, serif;
     font-size: 42px;
-    cursor: pointer;
-}
-
-.hero-circle span:hover {
-    transition: all 0.5s;
-    transform: scale(1.15);
-}
-
-.hero-circle span:active {
-    color: gold;
-    transform: scale(1.17) skew(-15deg);
+    transition:
+        transform var(--transition),
+        color var(--transition);
 }
 
 .coordinates {
@@ -466,7 +510,7 @@ button:focus-visible {
 }
 
 .dark-section .section-label {
-    color: #85817a;
+    color: var(--timeline-muted);
 }
 
 .timeline {
@@ -478,15 +522,15 @@ button:focus-visible {
     grid-template-columns: 190px 1fr;
     gap: 40px;
     padding: 35px 0;
-    border-top: 1px solid #3c3c3c;
+    border-top: 1px solid var(--timeline-border);
 }
 
 .timeline-item:last-child {
-    border-bottom: 1px solid #3c3c3c;
+    border-bottom: 1px solid var(--timeline-border);
 }
 
 .timeline-date {
-    color: #85817a;
+    color: var(--timeline-muted);
     font-size: 10px;
 }
 
@@ -498,7 +542,7 @@ button:focus-visible {
 
 .timeline-item p {
     max-width: 620px;
-    color: #aaa69e;
+    color: var(--timeline-text);
     font-size: 14px;
 }
 
@@ -516,8 +560,8 @@ button:focus-visible {
     position: relative;
     height: 360px;
     overflow: hidden;
-    background: #dedbd3;
-    transition: transform 0.5s ease;
+    background: var(--project-background);
+    transition: transform var(--transition-slow);
 }
 
 .project-large .project-image {
@@ -543,7 +587,7 @@ button:focus-visible {
 .abstract-shape {
     width: 65%;
     height: 65%;
-    border: 1px solid #77736b;
+    border: 1px solid var(--project-line);
     border-radius: 50%;
     position: relative;
 }
@@ -553,7 +597,7 @@ button:focus-visible {
     position: absolute;
     width: 45%;
     height: 140%;
-    border: 1px solid #77736b;
+    border: 1px solid var(--project-line);
     border-radius: 50%;
     top: -20%;
     left: 27%;
@@ -564,7 +608,7 @@ button:focus-visible {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: #222;
+    background: var(--project-dark);
 }
 
 .abstract-circle::after {
@@ -572,7 +616,7 @@ button:focus-visible {
     position: absolute;
     width: 280px;
     height: 280px;
-    border: 1px solid #77736b;
+    border: 1px solid var(--project-line);
     border-radius: 50%;
 }
 
@@ -583,10 +627,14 @@ button:focus-visible {
         linear-gradient(
             90deg,
             transparent 49.5%,
-            #77736b 50%,
+            var(--project-line) 50%,
             transparent 50.5%
         ),
-        linear-gradient(transparent 49.5%, #77736b 50%, transparent 50.5%);
+        linear-gradient(
+            transparent 49.5%,
+            var(--project-line) 50%,
+            transparent 50.5%
+        );
     background-size: 45px 45px;
 }
 
@@ -609,7 +657,9 @@ button:focus-visible {
 
 .project-arrow {
     font-size: 23px;
-    transition: transform var(--transition);
+    transition:
+        transform var(--transition),
+        color var(--transition);
 }
 
 .articles-section {
@@ -627,8 +677,9 @@ button:focus-visible {
     padding: 28px 0;
     border-bottom: 1px solid var(--border);
     transition:
-        padding 0.3s ease,
-        background 0.3s ease;
+        padding-left 0.3s ease,
+        padding-right 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .article-number {
@@ -652,11 +703,15 @@ button:focus-visible {
 .article-arrow {
     text-align: right;
     font-size: 20px;
+    transition:
+        transform var(--transition),
+        color var(--transition);
 }
 
 .contact {
     padding: 150px 0 100px;
-    background: #d6d1c7;
+    background: var(--contact-background);
+    transition: background-color var(--transition);
 }
 
 .contact-content h2 {
@@ -685,7 +740,8 @@ button:focus-visible {
     color: var(--text);
     font-size: clamp(15px, 2.5vw, 32px);
     transition:
-        padding 0.4s ease,
+        padding-left 0.4s ease,
+        padding-right 0.4s ease,
         border-color 0.4s ease;
 }
 
@@ -718,12 +774,25 @@ button:focus-visible {
 
 .social-links a {
     position: relative;
+    display: inline-block;
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    display: inline-block;
-    transition: all 0.5s ease;
+    transition:
+        transform var(--transition-slow),
+        color var(--transition-slow);
+}
+
+.social-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width var(--transition);
 }
 
 .footer {
@@ -739,13 +808,26 @@ button:focus-visible {
     letter-spacing: 0.08em;
 }
 
-.footer :nth-child(3) {
+.footer-back {
     position: relative;
     color: var(--text);
     font-size: larger;
     font-weight: 400;
     display: inline-block;
-    transition: all 0.5s ease;
+    transition:
+        transform var(--transition-slow),
+        color var(--transition-slow);
+}
+
+.footer-back::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width var(--transition);
 }
 
 .reveal {
@@ -774,20 +856,30 @@ button:focus-visible {
         transform: scale(1.05);
     }
 
-    .my-name > span:hover {
+    .my-name .first-name > span:hover,
+    .my-name .last-name > span:hover {
         color: var(--my-name-color-hover);
         transform: scale(1.1) translateY(-4px);
         text-shadow: 4px 2px 10px var(--muted);
     }
 
     .theme-toggle:hover {
-        background: var(--text);
+        background-color: var(--text);
         color: var(--background);
-        transition: all 0.6s ease-in-out;
+        transform: rotate(8deg);
     }
 
     .button-dark:hover {
         transform: translateY(-3px);
+    }
+
+    .simple-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    .hero-circle span:hover {
+        transform: scale(1.15);
     }
 
     .project:hover .project-image {
@@ -796,11 +888,17 @@ button:focus-visible {
 
     .project:hover .project-arrow {
         transform: translate(4px, -4px);
+        color: var(--accent);
     }
 
     .article:hover {
         padding-left: 14px;
         padding-right: 14px;
+    }
+
+    .article:hover .article-arrow {
+        transform: translate(4px, -4px);
+        color: var(--accent);
     }
 
     .email:hover {
@@ -816,41 +914,19 @@ button:focus-visible {
 
     .social-links a:hover {
         transform: scale(1.15) translateY(-2.5px);
-        color: #090909;
-    }
-
-    .social-links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 0;
-        height: 1px;
-        background: currentColor;
-        transition: width var(--transition);
+        color: var(--text);
     }
 
     .social-links a:hover::after {
         width: 100%;
     }
 
-    .footer :nth-child(3):hover {
-        color: #090909;
-        transform: scale(1.1) translateY(-2.5);
+    .footer-back:hover {
+        color: var(--text);
+        transform: scale(1.1) translateY(-2.5px);
     }
 
-    .footer :nth-child(3)::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 0;
-        height: 1px;
-        background: currentColor;
-        transition: width var(--transition);
-    }
-
-    .footer :nth-child(3):hover::after {
+    .footer-back:hover::after {
         width: 100%;
     }
 }
@@ -917,7 +993,7 @@ button:focus-visible {
 
     .my-name {
         margin-top: 130px;
-        gap: 6px;
+        padding-inline: 12px;
         font-size: clamp(50px, 10vw, 72px);
     }
 
@@ -1114,10 +1190,13 @@ button:focus-visible {
     .my-name {
         margin-top: 110px;
         padding-inline: 12px;
-        gap: 3px;
         font-size: clamp(34px, 11vw, 55px);
         letter-spacing: -0.04em;
-        flex-wrap: nowrap;
+    }
+
+    .my-name .first-name,
+    .my-name .last-name {
+        gap: 0.08em;
     }
 
     .hero {
@@ -1362,7 +1441,7 @@ button:focus-visible {
         font-size: 9px;
     }
 
-    .footer :nth-child(3) {
+    .footer-back {
         font-size: 12px;
     }
 }
@@ -1375,6 +1454,11 @@ button:focus-visible {
     .my-name {
         font-size: 31px;
         gap: 2px;
+    }
+
+    .my-name .first-name,
+    .my-name .last-name {
+        gap: 0.05em;
     }
 
     .hero {
@@ -1459,5 +1543,20 @@ button:focus-visible {
     .social-links a {
         font-size: 8px;
         letter-spacing: 0.05em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
