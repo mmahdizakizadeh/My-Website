@@ -777,7 +777,7 @@ a:focus-visible {
 .social-links a:active {
   color: var(--text-active);
   text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
-  transition: color 0.1s ease;
+  transition: color var(--transition-slow) ease;
 }
 
 .footer {
@@ -804,7 +804,7 @@ a:focus-visible {
 .footer-back:active {
   color: var(--text-active);
   text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
-  transition: color 0.1s ease;
+  transition: color var(--transition-slow) ease;
 }
 
 .footer-back::after {
