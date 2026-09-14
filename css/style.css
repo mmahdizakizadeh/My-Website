@@ -6,7 +6,8 @@
   --background: #f3f1ec;
   --surface: #e8e5de;
   --text: #171717;
-  --text-active: #817866;
+  --text-active: #a0895f;
+  --text-shadow-active: #574f3f;
   --muted: #77736c;
   --border: #d5d1c8;
   --border-email: #757575;
@@ -128,7 +129,7 @@ a:focus-visible {
 
 .logo:active {
   color: var(--text-active);
-  transition: color 0.1s ease;
+  transition: color 0.2s ease;
 }
 
 .nav-menu {
@@ -371,7 +372,7 @@ a:focus-visible {
 }
 
 .hero-circle span:active {
-  color: gold;
+  color: var(--text-active);
   transform: scale(1.17) skew(-15deg);
 }
 
@@ -721,6 +722,12 @@ a:focus-visible {
     border-color 0.4s ease;
 }
 
+.email:active {
+  color: var(--text-active);
+  text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
+  transition: color 0.1s ease;
+}
+
 .email-number {
   color: var(--muted);
   font-size: 10px;
@@ -767,6 +774,12 @@ a:focus-visible {
   transition: width var(--transition);
 }
 
+.social-links a:active {
+  color: var(--text-active);
+  text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
+  transition: color 0.1s ease;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -787,6 +800,11 @@ a:focus-visible {
   font-weight: 400;
   display: inline-block;
   transition: transform var(--transition-slow), color var(--transition-slow);
+}
+.footer-back:active {
+  color: var(--text-active);
+  text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
+  transition: color 0.1s ease;
 }
 
 .footer-back::after {
