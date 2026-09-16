@@ -44,7 +44,6 @@ if (menuToggle && navMenu) {
       menuToggle.focus();
     }
   });
-
   window.addEventListener("resize", () => {
     if (window.innerWidth > 850) {
       closeMenu();
@@ -59,7 +58,6 @@ if (themeToggle) {
       "aria-pressed",
       String(isDark)
     );
-
     themeToggle.setAttribute(
       "aria-label",
       isDark
@@ -67,30 +65,24 @@ if (themeToggle) {
         : "Switch to dark mode"
     );
   };
-
   if (savedTheme === "dark") {
     setTheme(true);
   } else {
     setTheme(false);
   }
-
   themeToggle.addEventListener("click", () => {
     const isDark =
       !document.body.classList.contains("dark-mode");
-
     setTheme(isDark);
-
     localStorage.setItem(
       "theme",
       isDark ? "dark" : "light"
     );
   });
 }
-
 if (header) {
   let lastScroll = window.scrollY;
   let ticking = false;
-
   const updateHeader = () => {
     const currentScroll = window.scrollY;
 
