@@ -62,7 +62,6 @@ if (menuToggle && navMenu) {
   });
 }
 
-
 if (themeToggle) {
   const savedTheme = localStorage.getItem("theme");
 
