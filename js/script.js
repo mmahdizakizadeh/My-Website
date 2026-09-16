@@ -1,10 +1,8 @@
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 const navLinks = document.querySelectorAll(".nav-menu a");
-
 const themeToggle = document.getElementById("themeToggle");
 const header = document.querySelector(".header");
-
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
