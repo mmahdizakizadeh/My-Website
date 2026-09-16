@@ -6,14 +6,12 @@ const header = document.querySelector(".header");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
-
 if (menuToggle && navMenu) {
   const closeMenu = () => {
     navMenu.classList.remove("active");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Open navigation");
   };
-
   const openMenu = () => {
     navMenu.classList.add("active");
     menuToggle.setAttribute("aria-expanded", "true");
