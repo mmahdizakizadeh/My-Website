@@ -51,13 +51,10 @@ if (menuToggle && navMenu) {
     }
   });
 }
-
 if (themeToggle) {
   const savedTheme = localStorage.getItem("theme");
-
   const setTheme = (isDark = false) => {
-    document.body.classList.toggle("dark-mode", isDark);
-
+  document.body.classList.toggle("dark-mode", isDark);
     themeToggle.setAttribute(
       "aria-pressed",
       String(isDark)
