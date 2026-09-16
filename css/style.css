@@ -803,6 +803,7 @@ a:focus-visible {
   display: inline-block;
   transition: transform var(--transition-slow), color var(--transition-slow);
 }
+
 .footer-back:active {
   color: var(--text-active);
   text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
