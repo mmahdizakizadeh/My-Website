@@ -100,10 +100,6 @@ if (themeToggle) {
   });
 }
 
-/* =========================
-   HEADER SCROLL
-========================= */
-
 if (header) {
   let lastScroll = window.scrollY;
   let ticking = false;
