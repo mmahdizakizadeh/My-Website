@@ -62,9 +62,6 @@ if (menuToggle && navMenu) {
   });
 }
 
-/* =========================
-   THEME
-========================= */
 
 if (themeToggle) {
   const savedTheme = localStorage.getItem("theme");
