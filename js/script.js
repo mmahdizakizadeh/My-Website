@@ -85,37 +85,31 @@ if (header) {
   let ticking = false;
   const updateHeader = () => {
     const currentScroll = window.scrollY;
-
     if (currentScroll > lastScroll && currentScroll > 150) {
       header.style.transform = "translateY(-100%)";
     } else {
       header.style.transform = "translateY(0)";
     }
-
     lastScroll = currentScroll;
     ticking = false;
   };
-
   window.addEventListener(
     "scroll",
     () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateHeader);
+  window.requestAnimationFrame(updateHeader);
         ticking = true;
       }
     },
     { passive: true }
   );
 }
-
 const revealElements = document.querySelectorAll(
   ".section-heading, .about-grid, .timeline-item, .project, .article, .contact-content"
 );
-
 revealElements.forEach((element) => {
   element.classList.add("reveal");
 });
-
 if (prefersReducedMotion) {
   revealElements.forEach((element) => {
     element.classList.add("visible");
@@ -125,7 +119,7 @@ if (prefersReducedMotion) {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+       entry.target.classList.add("visible");
           observer.unobserve(entry.target);
         }
       });
@@ -134,7 +128,6 @@ if (prefersReducedMotion) {
       threshold: 0.12
     }
   );
-
   revealElements.forEach((element) => {
     observer.observe(element);
   });
