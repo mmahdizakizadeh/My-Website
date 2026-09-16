@@ -133,10 +133,6 @@ if (header) {
   );
 }
 
-/* =========================
-   REVEAL ANIMATION
-========================= */
-
 const revealElements = document.querySelectorAll(
   ".section-heading, .about-grid, .timeline-item, .project, .article, .contact-content"
 );
