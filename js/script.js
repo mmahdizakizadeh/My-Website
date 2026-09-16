@@ -9,10 +9,6 @@ const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
-/* =========================
-   MOBILE MENU
-========================= */
-
 if (menuToggle && navMenu) {
   const closeMenu = () => {
     navMenu.classList.remove("active");
