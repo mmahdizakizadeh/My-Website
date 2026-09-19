@@ -1,6 +1,7 @@
-const style = document.createElement("style");
+const createStyles = () => {
+  const style = document.createElement("style");
 
-style.textContent = `
+  style.textContent = `
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap");
 
 :root {
@@ -101,11 +102,7 @@ a:focus-visible {
   width: 100%;
   z-index: 100;
   padding: 20px 0;
-  background: linear-gradient(
-    var(--header-start),
-    var(--header-middle),
-    var(--header-end)
-  );
+  background: linear-gradient(var(--header-start), var(--header-middle), var(--header-end));
   transition: transform 0.4s ease, background-color var(--transition);
 }
 
@@ -180,8 +177,7 @@ a:focus-visible {
   color: var(--text);
   cursor: pointer;
   font-size: 30px;
-  transition: background-color var(--transition), color var(--transition),
-    border-color var(--transition), transform var(--transition);
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .menu-toggle {
@@ -199,8 +195,7 @@ a:focus-visible {
   height: 1px;
   margin: 6px auto;
   background: var(--text);
-  transition: transform var(--transition), opacity var(--transition),
-    background-color var(--transition);
+  transition: transform var(--transition), opacity var(--transition), background-color var(--transition);
 }
 
 .menu-toggle[aria-expanded="true"] span:first-child {
@@ -236,8 +231,7 @@ a:focus-visible {
   display: inline-block;
   cursor: pointer;
   font-family: inherit;
-  transition: transform var(--transition), color var(--transition),
-    text-shadow var(--transition);
+  transition: transform var(--transition), color var(--transition), text-shadow var(--transition);
 }
 
 .hero {
@@ -295,8 +289,7 @@ a:focus-visible {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: transform var(--transition), background-color var(--transition),
-    color var(--transition);
+  transition: transform var(--transition), background-color var(--transition), color var(--transition);
 }
 
 .button-dark {
@@ -613,17 +606,7 @@ a:focus-visible {
 .grid-shape {
   width: 70%;
   height: 70%;
-  background: linear-gradient(
-      90deg,
-      transparent 49.5%,
-      var(--project-line) 50%,
-      transparent 50.5%
-    ),
-    linear-gradient(
-      transparent 49.5%,
-      var(--project-line) 50%,
-      transparent 50.5%
-    );
+  background: linear-gradient(90deg, transparent 49.5%, var(--project-line) 50%, transparent 50.5%), linear-gradient(transparent 49.5%, var(--project-line) 50%, transparent 50.5%);
   background-size: 45px 45px;
 }
 
@@ -663,8 +646,7 @@ a:focus-visible {
   align-items: center;
   padding: 28px 0;
   border-bottom: 1px solid var(--border);
-  transition: padding-left 0.3s ease, padding-right 0.3s ease,
-    background-color 0.3s ease;
+  transition: padding-left 0.3s ease, padding-right 0.3s ease, background-color 0.3s ease;
 }
 
 .article-number {
@@ -722,8 +704,7 @@ a:focus-visible {
   border-bottom: 1px solid var(--border-email);
   color: var(--text);
   font-size: clamp(15px, 2.5vw, 32px);
-  transition: padding-left 0.4s ease, padding-right 0.4s ease,
-    border-color 0.4s ease;
+  transition: padding-left 0.4s ease, padding-right 0.4s ease, border-color 0.4s ease;
 }
 
 .email:active {
@@ -838,99 +819,30 @@ a:focus-visible {
 }
 
 @media (hover: hover) {
-  .nav-menu a:hover {
-    transform: scale(1.15) translateY(-2.5px);
-  }
-
-  .nav-menu a:hover::after {
-    width: 100%;
-  }
-
-  .logo:hover {
-    transform: scale(1.05);
-  }
-
+  .nav-menu a:hover { transform: scale(1.15) translateY(-2.5px); }
+  .nav-menu a:hover::after { width: 100%; }
+  .logo:hover { transform: scale(1.05); }
   .my-name .first-name > em:hover,
-  .my-name .last-name > em:hover {
-    color: var(--my-name-color-hover);
-  }
-
-  .theme-toggle:hover {
-    background-color: var(--text);
-    color: var(--background);
-  }
-
-  .button-dark:hover {
-    transform: translateY(-3px);
-  }
-
-  .simple-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .hero-circle span:hover {
-    transform: scale(1.15);
-  }
-
-  .project:hover .project-image {
-    transform: scale(0.985);
-  }
-
-  .project:hover .project-arrow {
-    transform: translate(4px, -4px);
-    color: var(--accent);
-  }
-
-  .article:hover {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .article:hover .article-arrow {
-    transform: translate(4px, -4px);
-    color: var(--accent);
-  }
-
-  .email:hover {
-    padding-left: 15px;
-    padding-right: 15px;
-    border-color: var(--accent);
-  }
-
-  .email:hover .email-arrow {
-    transform: translate(5px, -5px);
-    color: var(--accent);
-  }
-
-  .social-links a:hover {
-    transform: scale(1.15) translateY(-2.5px);
-    color: var(--text);
-  }
-
-  .social-links a:hover::after {
-    width: 100%;
-  }
-
-  .footer-back:hover {
-    color: var(--text);
-    transform: scale(1.1) translateY(-2.5px);
-  }
-
-  .footer-back:hover::after {
-    width: 100%;
-  }
+  .my-name .last-name > em:hover { color: var(--my-name-color-hover); }
+  .theme-toggle:hover { background-color: var(--text); color: var(--background); }
+  .button-dark:hover { transform: translateY(-3px); }
+  .simple-link:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-circle span:hover { transform: scale(1.15); }
+  .project:hover .project-image { transform: scale(0.985); }
+  .project:hover .project-arrow { transform: translate(4px, -4px); color: var(--accent); }
+  .article:hover { padding-left: 14px; padding-right: 14px; }
+  .article:hover .article-arrow { transform: translate(4px, -4px); color: var(--accent); }
+  .email:hover { padding-left: 15px; padding-right: 15px; border-color: var(--accent); }
+  .email:hover .email-arrow { transform: translate(5px, -5px); color: var(--accent); }
+  .social-links a:hover { transform: scale(1.15) translateY(-2.5px); color: var(--text); }
+  .social-links a:hover::after { width: 100%; }
+  .footer-back:hover { color: var(--text); transform: scale(1.1) translateY(-2.5px); }
+  .footer-back:hover::after { width: 100%; }
 }
 
 @media (max-width: 850px) {
-  .container {
-    width: min(100% - 32px, 650px);
-  }
-
-  .navbar {
-    width: calc(100% - 32px);
-  }
-
+  .container { width: min(100% - 32px, 650px); }
+  .navbar { width: calc(100% - 32px); }
   .nav-menu {
     position: absolute;
     top: 80px;
@@ -948,597 +860,140 @@ a:focus-visible {
     transform: translateY(-12px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   }
-
-  .nav-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .nav-menu li {
-    width: 100%;
-  }
-
-  .nav-menu a {
-    display: block;
-    padding: 15px 0;
-    transform: none !important;
-  }
-
-  .nav-menu a::after {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-    margin-right: 12px;
-  }
-
-  .theme-toggle {
-    flex-shrink: 0;
-  }
-
-  .my-name {
-    margin-top: 130px;
-    padding-inline: 12px;
-    font-size: clamp(50px, 10vw, 72px);
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 100px;
-    gap: 30px;
-  }
-
-  .hero-content {
-    order: 2;
-  }
-
-  .hero-art {
-    order: 1;
-    height: 330px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .orbit-one {
-    width: 290px;
-    height: 120px;
-  }
-
-  .orbit-two {
-    width: 220px;
-    height: 320px;
-  }
-
-  .orbit-three {
-    width: 270px;
-    height: 270px;
-  }
-
-  .hero-circle {
-    width: 125px;
-    height: 125px;
-  }
-
-  .hero-circle::before {
-    width: 82px;
-    height: 82px;
-  }
-
-  .hero-circle span {
-    font-size: 32px;
-  }
-
-  .coordinates {
-    top: 5%;
-    right: 5%;
-  }
-
-  .hero-label {
-    right: 5%;
-    bottom: 3%;
-  }
-
-  .section {
-    padding-top: 90px;
-    padding-bottom: 90px;
-  }
-
-  .section-heading {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 50px;
-  }
-
-  .section-heading h2 {
-    font-size: clamp(42px, 9vw, 65px);
-  }
-
-  .statement {
-    padding: 90px 0;
-  }
-
-  .statement h2 {
-    font-size: clamp(38px, 8vw, 60px);
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    margin-left: 0;
-  }
-
-  .about-intro p {
-    font-size: clamp(30px, 7vw, 42px);
-  }
-
-  .timeline {
-    margin-left: 0;
-  }
-
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .timeline-item h3 {
-    font-size: 22px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .project-large {
-    grid-column: auto;
-  }
-
+  .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-menu li { width: 100%; }
+  .nav-menu a { display: block; padding: 15px 0; transform: none !important; }
+  .nav-menu a::after { display: none; }
+  .menu-toggle { display: block; margin-left: auto; margin-right: 12px; }
+  .theme-toggle { flex-shrink: 0; }
+  .my-name { margin-top: 130px; padding-inline: 12px; font-size: clamp(50px, 10vw, 72px); }
+  .hero { grid-template-columns: 1fr; padding-top: 100px; gap: 30px; }
+  .hero-content { order: 2; }
+  .hero-art { order: 1; height: 330px; width: 100%; overflow: hidden; }
+  .orbit-one { width: 290px; height: 120px; }
+  .orbit-two { width: 220px; height: 320px; }
+  .orbit-three { width: 270px; height: 270px; }
+  .hero-circle { width: 125px; height: 125px; }
+  .hero-circle::before { width: 82px; height: 82px; }
+  .hero-circle span { font-size: 32px; }
+  .coordinates { top: 5%; right: 5%; }
+  .hero-label { right: 5%; bottom: 3%; }
+  .section { padding-top: 90px; padding-bottom: 90px; }
+  .section-heading { grid-template-columns: 1fr; gap: 20px; margin-bottom: 50px; }
+  .section-heading h2 { font-size: clamp(42px, 9vw, 65px); }
+  .statement { padding: 90px 0; }
+  .statement h2 { font-size: clamp(38px, 8vw, 60px); }
+  .about-grid { grid-template-columns: 1fr; gap: 50px; margin-left: 0; }
+  .about-intro p { font-size: clamp(30px, 7vw, 42px); }
+  .timeline { margin-left: 0; }
+  .timeline-item { grid-template-columns: 1fr; gap: 12px; }
+  .timeline-item h3 { font-size: 22px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 45px; }
+  .project-large { grid-column: auto; }
   .project-image,
-  .project-large .project-image {
-    height: 330px;
-  }
-
-  .article {
-    grid-template-columns: 50px 1fr 30px;
-  }
-
-  .contact {
-    padding: 100px 0 70px;
-  }
-
-  .contact-content h2 {
-    margin-bottom: 55px;
-    font-size: clamp(50px, 9vw, 75px);
-  }
-
-  .social-links {
-    gap: 45px;
-    margin-top: 70px;
-  }
-
-  .footer {
-    min-height: auto;
-    padding: 25px 16px;
-    flex-direction: column;
-    gap: 18px;
-    text-align: center;
-  }
+  .project-large .project-image { height: 330px; }
+  .article { grid-template-columns: 50px 1fr 30px; }
+  .contact { padding: 100px 0 70px; }
+  .contact-content h2 { margin-bottom: 55px; font-size: clamp(50px, 9vw, 75px); }
+  .social-links { gap: 45px; margin-top: 70px; }
+  .footer { min-height: auto; padding: 25px 16px; flex-direction: column; gap: 18px; text-align: center; }
 }
 
 @media (max-width: 600px) {
-  .container {
-    width: calc(100% - 32px);
-  }
-
-  .header {
-    padding: 12px 0;
-  }
-
-  .navbar {
-    width: calc(100% - 32px);
-    height: 54px;
-  }
-
-  .logo {
-    font-size: 24px;
-    letter-spacing: -1.5px;
-  }
-
-  .menu-toggle {
-    width: 38px;
-    height: 38px;
-    margin-right: 7px;
-  }
-
-  .menu-toggle span {
-    width: 23px;
-  }
-
-  .theme-toggle {
-    width: 35px;
-    height: 35px;
-    font-size: 15px;
-  }
-
-  .nav-menu {
-    top: 68px;
-    left: 16px;
-    right: 16px;
-    padding: 8px 18px;
-  }
-
-  .nav-menu a {
-    padding: 13px 0;
-    font-size: 12px;
-  }
-
-  .my-name {
-    margin-top: 110px;
-    padding-inline: 12px;
-    font-size: clamp(34px, 11vw, 55px);
-    letter-spacing: -0.04em;
-  }
-
+  .container { width: calc(100% - 32px); }
+  .header { padding: 12px 0; }
+  .navbar { width: calc(100% - 32px); height: 54px; }
+  .logo { font-size: 24px; letter-spacing: -1.5px; }
+  .menu-toggle { width: 38px; height: 38px; margin-right: 7px; }
+  .menu-toggle span { width: 23px; }
+  .theme-toggle { width: 35px; height: 35px; font-size: 15px; }
+  .nav-menu { top: 68px; left: 16px; right: 16px; padding: 8px 18px; }
+  .nav-menu a { padding: 13px 0; font-size: 12px; }
+  .my-name { margin-top: 110px; padding-inline: 12px; font-size: clamp(34px, 11vw, 55px); letter-spacing: -0.04em; }
   .my-name .first-name,
-  .my-name .last-name {
-    gap: 0.08em;
-  }
-
-  .hero {
-    width: calc(100% - 32px);
-    min-height: auto;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    gap: 15px;
-  }
-
-  .hero-art {
-    height: 260px;
-  }
-
-  .orbit-one {
-    width: 230px;
-    height: 95px;
-  }
-
-  .orbit-two {
-    width: 175px;
-    height: 250px;
-  }
-
-  .orbit-three {
-    width: 215px;
-    height: 215px;
-  }
-
-  .hero-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .hero-circle::before {
-    width: 66px;
-    height: 66px;
-  }
-
-  .hero-circle span {
-    font-size: 27px;
-  }
-
-  .coordinates {
-    top: 4%;
-    right: 2%;
-    font-size: 8px;
-  }
-
-  .hero-label {
-    right: 2%;
-    bottom: 2%;
-    font-size: 8px;
-  }
-
-  .eyebrow {
-    font-size: 9px;
-  }
-
-  .hero h2 {
-    margin: 18px 0 22px;
-    font-size: clamp(42px, 13vw, 62px);
-    line-height: 0.94;
-  }
-
-  .hero-description {
-    font-size: 13px;
-    line-height: 1.75;
-  }
-
-  .hero-buttons {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .button {
-    padding: 14px 18px;
-    font-size: 10px;
-  }
-
-  .statement {
-    padding: 70px 0;
-  }
-
-  .statement h2 {
-    margin-top: 20px;
-    font-size: clamp(32px, 10vw, 48px);
-    line-height: 1.02;
-  }
-
-  .section {
-    padding-top: 75px;
-    padding-bottom: 75px;
-  }
-
-  .section-heading {
-    margin-bottom: 40px;
-    gap: 15px;
-  }
-
-  .section-heading h2 {
-    font-size: clamp(38px, 11vw, 55px);
-  }
-
-  .about-grid {
-    gap: 40px;
-  }
-
-  .about-intro p {
-    font-size: clamp(27px, 8vw, 38px);
-  }
-
-  .about-content > p {
-    font-size: 13px;
-    line-height: 1.8;
-  }
-
-  .facts {
-    margin-top: 40px;
-  }
-
-  .fact {
-    grid-template-columns: 35px 1fr;
-    padding: 15px 0;
-  }
-
-  .timeline-item {
-    padding: 28px 0;
-  }
-
-  .timeline-item h3 {
-    font-size: 20px;
-  }
-
-  .timeline-item p {
-    font-size: 13px;
-    line-height: 1.75;
-  }
-
-  .projects-grid {
-    gap: 38px;
-  }
-
+  .my-name .last-name { gap: 0.08em; }
+  .hero { width: calc(100% - 32px); min-height: auto; padding-top: 70px; padding-bottom: 70px; gap: 15px; }
+  .hero-art { height: 260px; }
+  .orbit-one { width: 230px; height: 95px; }
+  .orbit-two { width: 175px; height: 250px; }
+  .orbit-three { width: 215px; height: 215px; }
+  .hero-circle { width: 100px; height: 100px; }
+  .hero-circle::before { width: 66px; height: 66px; }
+  .hero-circle span { font-size: 27px; }
+  .coordinates { top: 4%; right: 2%; font-size: 8px; }
+  .hero-label { right: 2%; bottom: 2%; font-size: 8px; }
+  .eyebrow { font-size: 9px; }
+  .hero h2 { margin: 18px 0 22px; font-size: clamp(42px, 13vw, 62px); line-height: 0.94; }
+  .hero-description { font-size: 13px; line-height: 1.75; }
+  .hero-buttons { align-items: flex-start; flex-direction: column; gap: 20px; margin-top: 30px; }
+  .button { padding: 14px 18px; font-size: 10px; }
+  .statement { padding: 70px 0; }
+  .statement h2 { margin-top: 20px; font-size: clamp(32px, 10vw, 48px); line-height: 1.02; }
+  .section { padding-top: 75px; padding-bottom: 75px; }
+  .section-heading { margin-bottom: 40px; gap: 15px; }
+  .section-heading h2 { font-size: clamp(38px, 11vw, 55px); }
+  .about-grid { gap: 40px; }
+  .about-intro p { font-size: clamp(27px, 8vw, 38px); }
+  .about-content > p { font-size: 13px; line-height: 1.8; }
+  .facts { margin-top: 40px; }
+  .fact { grid-template-columns: 35px 1fr; padding: 15px 0; }
+  .timeline-item { padding: 28px 0; }
+  .timeline-item h3 { font-size: 20px; }
+  .timeline-item p { font-size: 13px; line-height: 1.75; }
+  .projects-grid { gap: 38px; }
   .project-image,
-  .project-large .project-image {
-    height: 280px;
-  }
-
-  .project-image > span {
-    top: 15px;
-    left: 15px;
-  }
-
-  .abstract-circle {
-    width: 125px;
-    height: 125px;
-  }
-
-  .abstract-circle::after {
-    width: 190px;
-    height: 190px;
-  }
-
-  .project-info {
-    padding-top: 14px;
-  }
-
-  .project-info h3 {
-    font-size: 18px;
-  }
-
-  .project-info p {
-    font-size: 10px;
-  }
-
-  .project-arrow {
-    font-size: 20px;
-  }
-
-  .article {
-    grid-template-columns: 35px 1fr 25px;
-    padding: 22px 0;
-  }
-
-  .article h3 {
-    font-size: 18px;
-    line-height: 1.3;
-  }
-
-  .article small {
-    font-size: 8px;
-    line-height: 1.5;
-  }
-
-  .article-arrow {
-    font-size: 18px;
-  }
-
-  .contact {
-    padding: 80px 0 60px;
-  }
-
-  .contact-content h2 {
-    margin: 20px 0 45px;
-    font-size: clamp(43px, 13vw, 65px);
-  }
-
-  .email {
-    grid-template-columns: 32px 1fr auto;
-    padding: 18px 0;
-    font-size: clamp(12px, 4vw, 17px);
-  }
-
-  .email-number {
-    font-size: 9px;
-  }
-
-  .email-arrow {
-    margin-left: 10px;
-    font-size: 20px;
-  }
-
-  .social-links {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 10px;
-    width: 100%;
-    margin-top: 55px;
-  }
-
-  .social-links a {
-    font-size: 9px;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-  }
-
-  .footer {
-    padding: 25px 16px;
-    gap: 14px;
-    font-size: 9px;
-  }
-
-  .footer-back {
-    font-size: 12px;
-  }
+  .project-large .project-image { height: 280px; }
+  .project-image > span { top: 15px; left: 15px; }
+  .abstract-circle { width: 125px; height: 125px; }
+  .abstract-circle::after { width: 190px; height: 190px; }
+  .project-info { padding-top: 14px; }
+  .project-info h3 { font-size: 18px; }
+  .project-info p { font-size: 10px; }
+  .project-arrow { font-size: 20px; }
+  .article { grid-template-columns: 35px 1fr 25px; padding: 22px 0; }
+  .article h3 { font-size: 18px; line-height: 1.3; }
+  .article small { font-size: 8px; line-height: 1.5; }
+  .article-arrow { font-size: 18px; }
+  .contact { padding: 80px 0 60px; }
+  .contact-content h2 { margin: 20px 0 45px; font-size: clamp(43px, 13vw, 65px); }
+  .email { grid-template-columns: 32px 1fr auto; padding: 18px 0; font-size: clamp(12px, 4vw, 17px); }
+  .email-number { font-size: 9px; }
+  .email-arrow { margin-left: 10px; font-size: 20px; }
+  .social-links { flex-wrap: nowrap; justify-content: space-between; gap: 10px; width: 100%; margin-top: 55px; }
+  .social-links a { font-size: 9px; letter-spacing: 0.08em; white-space: nowrap; }
+  .footer { padding: 25px 16px; gap: 14px; font-size: 9px; }
+  .footer-back { font-size: 12px; }
 }
 
 @media (max-width: 380px) {
-  .logo {
-    font-size: 21px;
-  }
-
-  .my-name {
-    font-size: 31px;
-    gap: 2px;
-  }
-
+  .logo { font-size: 21px; }
+  .my-name { font-size: 31px; gap: 2px; }
   .my-name .first-name,
-  .my-name .last-name {
-    gap: 0.05em;
-  }
-
-  .hero {
-    padding-top: 55px;
-  }
-
-  .hero-art {
-    height: 230px;
-  }
-
-  .orbit-one {
-    width: 200px;
-    height: 82px;
-  }
-
-  .orbit-two {
-    width: 150px;
-    height: 215px;
-  }
-
-  .orbit-three {
-    width: 185px;
-    height: 185px;
-  }
-
-  .hero-circle {
-    width: 85px;
-    height: 85px;
-  }
-
-  .hero-circle::before {
-    width: 56px;
-    height: 56px;
-  }
-
-  .hero-circle span {
-    font-size: 23px;
-  }
-
-  .hero h2 {
-    font-size: 40px;
-  }
-
-  .section-heading h2 {
-    font-size: 36px;
-  }
-
-  .statement h2 {
-    font-size: 31px;
-  }
-
+  .my-name .last-name { gap: 0.05em; }
+  .hero { padding-top: 55px; }
+  .hero-art { height: 230px; }
+  .orbit-one { width: 200px; height: 82px; }
+  .orbit-two { width: 150px; height: 215px; }
+  .orbit-three { width: 185px; height: 185px; }
+  .hero-circle { width: 85px; height: 85px; }
+  .hero-circle::before { width: 56px; height: 56px; }
+  .hero-circle span { font-size: 23px; }
+  .hero h2 { font-size: 40px; }
+  .section-heading h2 { font-size: 36px; }
+  .statement h2 { font-size: 31px; }
   .project-image,
-  .project-large .project-image {
-    height: 240px;
-  }
-
-  .article {
-    grid-template-columns: 28px 1fr 20px;
-  }
-
-  .article h3 {
-    font-size: 16px;
-  }
-
-  .email {
-    grid-template-columns: 25px 1fr auto;
-    font-size: 11px;
-  }
-
-  .email-number {
-    font-size: 8px;
-  }
-
-  .email-arrow {
-    font-size: 17px;
-  }
-
-  .social-links {
-    gap: 6px;
-  }
-
-  .social-links a {
-    font-size: 8px;
-    letter-spacing: 0.05em;
-  }
+  .project-large .project-image { height: 240px; }
+  .article { grid-template-columns: 28px 1fr 20px; }
+  .article h3 { font-size: 16px; }
+  .email { grid-template-columns: 25px 1fr auto; font-size: 11px; }
+  .email-number { font-size: 8px; }
+  .email-arrow { font-size: 17px; }
+  .social-links { gap: 6px; }
+  .social-links a { font-size: 8px; letter-spacing: 0.05em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
@@ -1550,480 +1005,18 @@ a:focus-visible {
 }
 `;
 
-document.head.appendChild(style);
+  document.head.appendChild(style);
+};
 
-document.title = "MMahdi Zakizadeh — Front-End Developer, Engineer & Designer";
+const initNavigation = () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+  const navLinks = document.querySelectorAll(".nav-menu a");
 
-document.head.insertAdjacentHTML(
-  "beforeend",
-  `
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MMahdi Zakizadeh — Front-end Developer, Designer and Mechanical Engineer. Personal portfolio featuring selected work, experience, articles and ideas.">
-<meta name="author" content="Mohammad Mahdi Zakizadeh">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="MMahdi Zakizadeh — Front-End Developer, Engineer & Designer">
-<meta property="og:description" content="Personal portfolio of Mohammad Mahdi Zakizadeh, a front-end developer, designer and mechanical engineer.">
-<meta property="og:url" content="https://MMahdiZakizadeh.com">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MMahdi Zakizadeh Portfolio">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MMahdi Zakizadeh — Front-End Developer, Engineer & Designer">
-<meta name="twitter:description" content="Personal portfolio of Mohammad Mahdi Zakizadeh, a front-end developer, designer and mechanical engineer.">
-`
-);
+  if (!menuToggle || !navMenu) {
+    return;
+  }
 
-document.documentElement.lang = "en";
-document.documentElement.dir = "ltr";
-
-document.body.innerHTML = `
-<header class="header" id="home">
-  <nav class="navbar" aria-label="Primary navigation">
-    <a href="#my-name" class="logo">
-      M Mahdi Zk<span aria-hidden="true">.</span>
-    </a>
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="navMenu">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
-
-    <ul class="nav-menu" id="navMenu">
-      <li>
-        <a href="#about">About</a>
-      </li>
-      <li>
-        <a href="#experience">Experience</a>
-      </li>
-      <li>
-        <a href="#projects">Work</a>
-      </li>
-      <li>
-        <a href="#articles">Articles</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-    </ul>
-
-    <button
-      class="theme-toggle"
-      id="themeToggle"
-      type="button"
-      aria-label="Switch to dark mode"
-      aria-pressed="false">
-      <span aria-hidden="true">◐</span>
-    </button>
-  </nav>
-</header>
-
-<main>
-  <h1 class="my-name" id="my-name">
-    <div class="first-name">
-      <em title="Mohammad">Mohammad</em>
-      <em title="Mahdi">Mahdi</em>
-    </div>
-    <div class="last-name">
-      <em title="Zakizadeh">Zakizadeh</em>
-    </div>
-  </h1>
-
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-content">
-      <p class="eyebrow">Designer · Developer · Engineer</p>
-
-      <h2 id="hero-title">
-        Building
-        <em>digital</em>
-        experiences with purpose.
-      </h2>
-
-      <p class="hero-description">
-        I'm Mahdi, a front-end developer and designer interested in
-        engineering, systems, creativity and the details that make digital
-        experiences feel right.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projects" class="button button-dark">
-          View my work
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <a href="#contact" class="simple-link">
-          Let's talk
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-art" aria-hidden="true">
-      <div class="orbit orbit-one"></div>
-      <div class="orbit orbit-two"></div>
-      <div class="orbit orbit-three"></div>
-
-      <div class="hero-circle">
-        <span>M</span>
-      </div>
-
-      <div class="coordinates">
-        35° 41' 02" N<br>
-        51° 23' 44" E
-      </div>
-
-      <div class="hero-label">PERSONAL / 2026</div>
-    </div>
-  </section>
-
-  <section class="statement" aria-labelledby="statement-title">
-    <div class="container">
-      <p class="section-label">01 / Philosophy</p>
-
-      <h2 id="statement-title">
-        Curiosity lives at the intersection of
-        <span>design, code and engineering.</span>
-      </h2>
-    </div>
-  </section>
-
-  <section
-    class="section container"
-    id="about"
-    aria-labelledby="about-title">
-
-    <div class="section-heading">
-      <p class="section-label">02 / About me</p>
-
-      <h2 id="about-title">
-        A little about<br>
-        who I am.
-      </h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-intro">
-        <p>I like turning ideas into things people can actually use.</p>
-      </div>
-
-      <div class="about-content">
-        <p>
-          My work lives somewhere between visual design and front-end
-          development, with an engineering mindset behind the decisions.
-        </p>
-
-        <p>
-          I enjoy clean interfaces, thoughtful interactions, systems,
-          creativity and problems that don't have an obvious answer.
-        </p>
-
-        <div class="facts">
-          <div class="fact">
-            <span aria-hidden="true">01</span>
-
-            <div>
-              <strong>Front-end</strong>
-              <small>HTML · CSS · JavaScript</small>
-            </div>
-          </div>
-
-          <div class="fact">
-            <span aria-hidden="true">02</span>
-
-            <div>
-              <strong>Design</strong>
-              <small>UI · UX · Figma</small>
-            </div>
-          </div>
-
-          <div class="fact">
-            <span aria-hidden="true">03</span>
-
-            <div>
-              <strong>Engineering</strong>
-              <small>Systems · Problem solving</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="dark-section"
-    id="experience"
-    aria-labelledby="experience-title">
-
-    <div class="section container">
-      <div class="section-heading light">
-        <p class="section-label">03 / Experience</p>
-
-        <h2 id="experience-title">
-          Learning,<br>
-          building & evolving.
-        </h2>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <time class="timeline-date" datetime="2026">
-            2026 — Present
-          </time>
-
-          <div>
-            <h3>Front-end Development</h3>
-
-            <p>
-              Building responsive interfaces and experimenting with
-              interaction, animation and modern web design.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <time class="timeline-date" datetime="2025/2026">
-            2025 — 2026
-          </time>
-
-          <div>
-            <h3>Design & Web Projects</h3>
-
-            <p>
-              Exploring UI design, personal websites, reusable components
-              and visual systems.
-            </p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <span class="timeline-date">Ongoing</span>
-
-          <div>
-            <h3>Engineering Mindset</h3>
-
-            <p>
-              Connecting engineering, programming and creative problem
-              solving.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="section container"
-    id="projects"
-    aria-labelledby="projects-title">
-
-    <div class="section-heading">
-      <p class="section-label">04 / Selected work</p>
-
-      <h2 id="projects-title">
-        Things I've<br>
-        been building.
-      </h2>
-    </div>
-
-    <div class="projects-grid">
-      <article class="project project-large">
-        <a href="#" aria-label="View Interactive Web project">
-          <div class="project-image project-one" aria-hidden="true">
-            <span>01</span>
-            <div class="abstract-shape"></div>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <h3>Interactive Web</h3>
-              <p>Front-end / Interaction</p>
-            </div>
-
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="project">
-        <a href="#" aria-label="View Personal Interface project">
-          <div class="project-image project-two" aria-hidden="true">
-            <span>02</span>
-            <div class="abstract-circle"></div>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <h3>Personal Interface</h3>
-              <p>UI / UX / Development</p>
-            </div>
-
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
-      </article>
-
-      <article class="project">
-        <a href="#" aria-label="View Creative System project">
-          <div class="project-image project-three" aria-hidden="true">
-            <span>03</span>
-            <div class="grid-shape"></div>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <h3>Creative System</h3>
-              <p>Design / Experiment</p>
-            </div>
-
-            <span class="project-arrow" aria-hidden="true">↗</span>
-          </div>
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <section
-    class="articles-section"
-    id="articles"
-    aria-labelledby="articles-title">
-
-    <div class="section container">
-      <div class="section-heading">
-        <p class="section-label">05 / Journal</p>
-
-        <h2 id="articles-title">
-          Notes, ideas
-          <br>
-          & observations.
-        </h2>
-      </div>
-
-      <div class="articles-list">
-        <a href="#" class="article">
-          <span class="article-number" aria-hidden="true">01</span>
-
-          <div>
-            <small>
-              Design ·
-              <time datetime="2026-09-05">05 Sep 2026</time>
-            </small>
-
-            <h3>Why simple interfaces are harder to design</h3>
-          </div>
-
-          <span class="article-arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a href="#" class="article">
-          <span class="article-number" aria-hidden="true">02</span>
-
-          <div>
-            <small>
-              Development ·
-              <time datetime="2026-08-28">28 Aug 2026</time>
-            </small>
-
-            <h3>What I learned from building small web projects</h3>
-          </div>
-
-          <span class="article-arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a href="#" class="article">
-          <span class="article-number" aria-hidden="true">03</span>
-
-          <div>
-            <small>
-              Engineering ·
-              <time datetime="2026-08-12">12 Aug 2026</time>
-            </small>
-
-            <h3>Thinking in systems instead of isolated parts</h3>
-          </div>
-
-          <span class="article-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="contact"
-    id="contact"
-    aria-labelledby="contact-title">
-
-    <div class="container contact-content">
-      <p class="section-label">06 / Contact</p>
-
-      <h2 id="contact-title">
-        Have an idea?
-        <em>Let's make it real.</em>
-      </h2>
-
-      <a
-        href="mailto:m.mahdi.zakizadeh.1380@gmail.com"
-        class="email">
-
-        <span class="email-number" aria-hidden="true">01</span>
-
-        <span class="email-text">
-          m.mahdi.zakizadeh.1380@gmail.com
-        </span>
-
-        <span class="email-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <nav class="social-links" aria-label="Social links">
-        <a
-          href="https://github.com/mmahdizakizadeh"
-          rel="noopener noreferrer">
-          GitHub
-        </a>
-
-        <a href="#" aria-label="LinkedIn profile">
-          LinkedIn
-        </a>
-
-        <a
-          href="https://www.instagram.com/mmahdi__zk?stkn=czlwdnNa6aXU1n2px"
-          rel="noopener noreferrer">
-          Instagram
-        </a>
-
-        <a
-          href="https://t.me/Mmahdi_Zkk"
-          rel="noopener noreferrer">
-          Telegram
-        </a>
-      </nav>
-    </div>
-  </section>
-</main>
-
-<footer class="footer container">
-  <p>© 2026 Mohammad Mahdi Zakizadeh</p>
-  <p>Designed & built with intention.</p>
-  <a href="#my-name" class="footer-back"> Back to top ↑ </a>
-</footer>
-`;
-
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-const navLinks = document.querySelectorAll(".nav-menu a");
-const themeToggle = document.getElementById("themeToggle");
-const header = document.querySelector(".header");
-
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-if (menuToggle && navMenu) {
   const closeMenu = () => {
     navMenu.classList.remove("active");
     menuToggle.setAttribute("aria-expanded", "false");
@@ -2037,13 +1030,7 @@ if (menuToggle && navMenu) {
   };
 
   menuToggle.addEventListener("click", () => {
-    const isOpen = navMenu.classList.contains("active");
-
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    navMenu.classList.contains("active") ? closeMenu() : openMenu();
   });
 
   navLinks.forEach((link) => {
@@ -2074,38 +1061,54 @@ if (menuToggle && navMenu) {
       closeMenu();
     }
   });
-}
+};
 
-if (themeToggle) {
+const initTheme = () => {
+  const themeToggle = document.getElementById("themeToggle");
+
+  if (!themeToggle) {
+    return;
+  }
+
   const savedTheme = localStorage.getItem("theme");
 
   const setTheme = (isDark = false) => {
     document.body.classList.toggle("dark-mode", isDark);
 
-    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute(
+      "aria-pressed",
+      String(isDark)
+    );
 
     themeToggle.setAttribute(
       "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
+      isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode"
     );
   };
 
-  if (savedTheme === "dark") {
-    setTheme(true);
-  } else {
-    setTheme(false);
-  }
+  setTheme(savedTheme === "dark");
 
   themeToggle.addEventListener("click", () => {
     const isDark = !document.body.classList.contains("dark-mode");
 
     setTheme(isDark);
 
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem(
+      "theme",
+      isDark ? "dark" : "light"
+    );
   });
-}
+};
 
-if (header) {
+const initHeaderScroll = () => {
+  const header = document.querySelector(".header");
+
+  if (!header) {
+    return;
+  }
+
   let lastScroll = window.scrollY;
   let ticking = false;
 
@@ -2132,40 +1135,62 @@ if (header) {
     },
     { passive: true }
   );
-}
+};
 
-const revealElements = document.querySelectorAll(
-  ".section-heading, .about-grid, .timeline-item, .project, .article, .contact-content"
-);
+const initRevealAnimation = () => {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-revealElements.forEach((element) => {
-  element.classList.add("reveal");
-});
-
-if (prefersReducedMotion) {
-  revealElements.forEach((element) => {
-    element.classList.add("visible");
-  });
-} else if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-    }
+  const revealElements = document.querySelectorAll(
+    ".section-heading, .about-grid, .timeline-item, .project, .article, .contact-content"
   );
 
   revealElements.forEach((element) => {
-    observer.observe(element);
+    element.classList.add("reveal");
   });
-} else {
+
+  if (prefersReducedMotion) {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+
+    return;
+  }
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return;
+  }
+
   revealElements.forEach((element) => {
     element.classList.add("visible");
   });
-}
+};
+
+const init = () => {
+  createStyles();
+  initNavigation();
+  initTheme();
+  initHeaderScroll();
+  initRevealAnimation();
+};
+
+init();
