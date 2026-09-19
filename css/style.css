@@ -212,6 +212,7 @@ a:focus-visible {
         opacity var(--transition),
         background-color var(--transition);
 }
+
 .menu-toggle[aria-expanded="true"] span:first-child {
     transform: translateY(3.5px) rotate(45deg);
 }
@@ -240,8 +241,8 @@ a:focus-visible {
     gap: 0.12em;
 }
 
-.my-name .first-name > em,
-.my-name .last-name > em {
+.my-name .first-name > span,
+.my-name .last-name > span {
     display: inline-block;
     cursor: pointer;
     font-family: inherit;
@@ -484,6 +485,7 @@ a:focus-visible {
 .facts {
     margin-top: 55px;
     border-top: 1px solid var(--border);
+    list-style: none;
 }
 
 .fact {
@@ -522,6 +524,7 @@ a:focus-visible {
 
 .timeline {
     margin-left: 220px;
+    list-style: none;
 }
 
 .timeline-item {
@@ -675,6 +678,11 @@ a:focus-visible {
 
 .articles-list {
     border-top: 1px solid var(--border);
+    list-style: none;
+}
+
+.articles-list > li {
+    border-bottom: 1px solid var(--border);
 }
 
 .article {
@@ -682,7 +690,6 @@ a:focus-visible {
     grid-template-columns: 70px 1fr 40px;
     align-items: center;
     padding: 28px 0;
-    border-bottom: 1px solid var(--border);
     transition:
         padding-left 0.3s ease,
         padding-right 0.3s ease,
@@ -754,8 +761,10 @@ a:focus-visible {
 
 .email:active {
     color: var(--text-active);
-    text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
-    transition: color var(--transition-slow) ease;
+    text-shadow: 2px 2px 10px var(--text-shadow-active);
+    transition:
+        color var(--transition-slow),
+        text-shadow var(--transition-slow);
     transition-delay: 0.1s;
 }
 
@@ -779,11 +788,15 @@ a:focus-visible {
 }
 
 .social-links {
+    margin-top: 100px;
+}
+
+.social-links ul {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
-    margin-top: 100px;
+    list-style: none;
 }
 
 .social-links a {
@@ -811,8 +824,10 @@ a:focus-visible {
 
 .social-links a:active {
     color: var(--text-active);
-    text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
-    transition: color var(--transition-slow) ease;
+    text-shadow: 2px 2px 10px var(--text-shadow-active);
+    transition:
+        color var(--transition-slow),
+        text-shadow var(--transition-slow);
     transition-delay: 0.05s;
 }
 
@@ -839,10 +854,13 @@ a:focus-visible {
         transform var(--transition-slow),
         color var(--transition-slow);
 }
+
 .footer-back:active {
     color: var(--text-active);
-    text-shadow: 2px 2px 2px 10px var(--text-shadow-active);
-    transition: color var(--transition-slow) ease;
+    text-shadow: 2px 2px 10px var(--text-shadow-active);
+    transition:
+        color var(--transition-slow),
+        text-shadow var(--transition-slow);
     transition-delay: 0.1s;
 }
 
@@ -883,9 +901,17 @@ a:focus-visible {
         transform: scale(1.05);
     }
 
-    .my-name .first-name > em:hover,
-    .my-name .last-name > em:hover {
+    .my-name .first-name > span:hover,
+    .my-name .last-name > span:hover {
         color: var(--my-name-color-hover);
+    }
+
+    .my-name .first-name > span:hover {
+        transform: scale(1.06);
+    }
+
+    .my-name .last-name > span:hover {
+        transform: scale(1.06);
     }
 
     .theme-toggle:hover {
@@ -1150,9 +1176,8 @@ a:focus-visible {
         font-size: clamp(50px, 9vw, 75px);
     }
 
-    .social-links {
+    .social-links ul {
         gap: 45px;
-        margin-top: 70px;
     }
 
     .footer {
@@ -1446,11 +1471,14 @@ a:focus-visible {
     }
 
     .social-links {
+        margin-top: 55px;
+    }
+
+    .social-links ul {
         flex-wrap: nowrap;
         justify-content: space-between;
         gap: 10px;
         width: 100%;
-        margin-top: 55px;
     }
 
     .social-links a {
@@ -1560,7 +1588,7 @@ a:focus-visible {
         font-size: 17px;
     }
 
-    .social-links {
+    .social-links ul {
         gap: 6px;
     }
 
@@ -1584,4 +1612,3 @@ a:focus-visible {
         scroll-behavior: auto !important;
     }
 }
-
