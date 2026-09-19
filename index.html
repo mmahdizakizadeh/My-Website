@@ -37,9 +37,10 @@
   <body>
     <header class="header" id="home">
       <nav class="navbar" aria-label="Primary navigation">
-        <a href="#my-name" class="logo"
-          >M Mahdi Zk<span aria-hidden="true">.</span></a
-        >
+        <a href="#my-name" class="logo" title="M Mahdi Zk">
+          M Mahdi Zk
+          <span aria-hidden="true">.</span>
+          </a>
 
         <button
           class="menu-toggle"
@@ -47,11 +48,13 @@
           type="button"
           aria-label="Open navigation"
           aria-expanded="false"
-          aria-controls="navMenu"
-        >
+          aria-controls="navMenu">
+
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
+
         </button>
+
         <ul class="nav-menu" id="navMenu">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -66,7 +69,7 @@
           type="button"
           aria-label="Switch to dark mode"
           aria-pressed="false"
-        >
+          title="dark mode">
           <span aria-hidden="true">◐</span>
         </button>
       </nav>
@@ -351,7 +354,11 @@
         <div class="container contact-content">
           <p class="section-label">06 / Contact</p>
           <h2 id="contact-title">Have an idea? <em>Let's make it real.</em></h2>
-          <a href="mailto:m.mahdi.zakizadeh.1380@gmail.com" class="email">
+          <a
+            href="mailto:m.mahdi.zakizadeh.1380@gmail.com"
+            class="email"
+            title="Email"
+          >
             <span class="email-number" aria-hidden="true">01</span>
             <span class="email-text">m.mahdi.zakizadeh.1380@gmail.com</span>
             <span class="email-arrow" aria-hidden="true">↗</span>
@@ -363,6 +370,7 @@
                 <a
                   href="https://github.com/mmahdizakizadeh"
                   rel="noopener noreferrer"
+                  title="GitHub"
                   >GitHub</a
                 >
               </li>
@@ -373,12 +381,17 @@
                 <a
                   href="https://www.instagram.com/mmahdi__zk?stkn=czlwdnNa6aXU1n2px"
                   rel="noopener noreferrer"
+                  title="Instagram"
                 >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="https://t.me/Mmahdi_Zkk" rel="noopener noreferrer">
+                <a
+                  href="https://t.me/Mmahdi_Zkk"
+                  rel="noopener noreferrer"
+                  title="Telegram"
+                >
                   Telegram
                 </a>
               </li>
@@ -391,7 +404,9 @@
     <footer class="footer container">
       <p>© 2026 Mohammad Mahdi Zakizadeh</p>
       <p>Designed & built with intention.</p>
-      <a href="#my-name" class="footer-back">Back to top ↑</a>
+      <a href="#my-name" class="footer-back" title="back button"
+        >Back to top ↑</a
+      >
     </footer>
 
     <script src="js/script.js"></script>
