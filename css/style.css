@@ -732,7 +732,7 @@ a:focus-visible {
 
 .email:active {
   color: var(--text-active);
-  text-shadow: 2px 2px 10px var(--text-shadow-active);
+  text-shadow: 1px 1px 2px var(--text-shadow-active);
   transition: color var(--transition-slow), text-shadow var(--transition-slow);
   transition-delay: 0.1s;
 }
