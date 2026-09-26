@@ -335,9 +335,12 @@ a:focus-visible {
 }
 
 .simple-link:active {
-    transition: color var(--transition-fast);
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast);
     color: var(--text-active);
-    text-shadow: var(--text-shadow-active);
+    border-bottom: 1.5px solid var(--text-active);
+    text-shadow: var(--text-sh adow-active);
 }
 
 .simple-link span {
