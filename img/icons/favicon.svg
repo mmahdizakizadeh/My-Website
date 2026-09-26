@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" shape-rendering="geometricPrecision">
+  <defs>
+    <mask id="orbit-cutout">
+      <rect width="64" height="64" fill="white" />
+      <ellipse cx="32" cy="32" rx="32" ry="12" transform="rotate(-40 32 32)" fill="none" stroke="black" stroke-width="6" />
+    </mask>
+  </defs>
+
+  <path 
+    d="M 12 50 
+       L 12 14 
+       L 20 14 
+       L 20 24 
+       L 32 40 
+       L 44 24 
+       L 44 14 
+       L 52 14 
+       L 52 50 
+       L 44 50 
+       L 44 32 
+       L 32 46 
+       L 20 32 
+       L 20 50 
+       Z" 
+    fill="#1A1A1A" 
+    mask="url(#orbit-cutout)" 
+  />
+
+  <ellipse 
+    cx="32" 
+    cy="32" 
+    rx="32" 
+    ry="12" 
+    transform="rotate(-40 32 32)" 
+    fill="none" 
+    stroke="#1A1A1A" 
+    stroke-width="2" 
+  />
+</svg>
