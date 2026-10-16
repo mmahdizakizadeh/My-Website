@@ -681,8 +681,12 @@ a:focus-visible {
   grid-template-columns: 70px 1fr 40px;
   align-items: center;
   padding: 28px 0;
-  transition: padding-left 0.3s ease, padding-right 0.3s ease,
-    background-color 0.3s ease;
+  transition: background-color var(--transition-slow),
+    transform var(--transition-slow), translate var(--transition-slow);
+}
+
+.article:active {
+  color: var(--text-active);
 }
 
 .article-number {
@@ -706,7 +710,7 @@ a:focus-visible {
 .article-arrow {
   text-align: right;
   font-size: 20px;
-  transition: transform var(--transition), color var(--transition);
+  transition: transform var(--transition-slow), color var(--transition-slow);
 }
 
 .contact {
@@ -907,12 +911,11 @@ a:focus-visible {
   }
 
   .article:hover {
-    padding-left: 14px;
-    padding-right: 14px;
+    transform: scale(0.95) translate(5px, -5px);
   }
 
   .article:hover .article-arrow {
-    transform: translate(4px, -4px);
+    transform: scale(1.3) translate(5px, -5px);
     color: var(--accent);
   }
 
