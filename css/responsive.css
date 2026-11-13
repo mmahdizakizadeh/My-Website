@@ -153,6 +153,23 @@
     font-size: clamp(30px, 7vw, 42px);
   }
 
+  .about-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-detail:nth-child(3) {
+    border-right: 0;
+  }
+
+  .about-detail:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+
+  .about-journey {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .timeline {
     margin-left: 0;
   }
@@ -370,15 +387,48 @@
   }
 
   .about-grid {
-    gap: 40px;
+    gap: 35px;
   }
 
   .about-intro p {
     font-size: clamp(27px, 8vw, 38px);
   }
 
+  .about-intro p:last-child {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 20px;
+  }
+
   .about-content > p {
     font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .about-details {
+    margin-top: 55px;
+  }
+
+  .about-detail {
+    padding: 20px 14px;
+    gap: 20px;
+  }
+
+  .about-detail h3 {
+    font-size: 13px;
+  }
+
+  .about-detail p {
+    font-size: 10px;
+  }
+
+  .about-journey {
+    margin-top: 50px;
+    gap: 15px;
+  }
+
+  .about-journey p {
+    font-size: 15px;
     line-height: 1.8;
   }
 
