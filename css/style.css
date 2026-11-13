@@ -285,7 +285,7 @@ a:focus-visible {
 
 .hero {
   min-height: 90vh;
-  width: min(1180px, calc(100% - 48px));
+  width: min(1280px, calc(100% - 48px));
   margin-inline: auto;
   padding-top: 60px;
   padding-bottom: 80px;
@@ -522,22 +522,105 @@ a:focus-visible {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 100px;
-  margin-left: 220px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 80px;
+  align-items: start;
+  margin-left: 40px;
 }
 
 .about-intro p {
-  font-size: clamp(28px, 3.2vw, 42px);
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  max-width: 720px;
+  width: 100%;
+  font-size: clamp(20px, 2.2vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+
+.about-intro p:last-child {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  margin-top: 25px;
+}
+
+.about-intro strong {
+  font-weight: 600;
+}
+
+.about-content {
+  padding-top: 8px;
 }
 
 .about-content > p {
   max-width: 480px;
   color: var(--muted);
   font-size: 14px;
-  margin-bottom: 20px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 85px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  list-style: none;
+}
+
+.about-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+  padding: 25px 22px;
+  border-right: 1px solid var(--border);
+}
+
+.about-detail:first-child {
+  border-right: 0;
+}
+
+.about-detail-number {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.about-detail h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.about-detail p {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.about-journey {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  margin-top: 75px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.about-journey-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.about-journey p {
+  max-width: 720px;
+  font-size: 19px;
+  line-height: 1.8;
+  letter-spacing: -0.015em;
 }
 
 .facts {
