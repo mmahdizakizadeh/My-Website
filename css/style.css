@@ -285,7 +285,7 @@ a:focus-visible {
 
 .hero {
   min-height: 90vh;
-  width: min(1180px, calc(100% - 48px));
+  width: min(1280px, calc(100% - 48px));
   margin-inline: auto;
   padding-top: 60px;
   padding-bottom: 80px;
