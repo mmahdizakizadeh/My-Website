@@ -1,79 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap");
 
 :root {
-  --background: #f3f1ec;
-  --surface: #e8e5de;
-  --text: #171717;
-  --text-hover: #966f1e;
-  --text-active: #a0895f;
+  --background: #f5f2eb;
+  --surface: #e5dfd3;
+
+  --text: #292724;
+  --secondary-text: #756b5e;
+
+  --accent: #a56850;
+  --secondary-accent: #967b52;
+  --soft-bronze: #b39b78;
+
+  --text-hover: #a28d65;
+  --text-active: #966f1e;
   --text-shadow-active: #574f3f;
-  --muted: #77736c;
-  --border: #d5d1c8;
+
+  --muted: #756b5e;
+
+  --border: #c6bba9;
   --border-email: #757575;
+
   --my-name-color: #171717d9;
   --my-name-color-hover: #171717f2;
+
   --dark-mode-button-bg: #ece6d6;
   --dark-mode-button-text: #75613a;
   --dark-mode-button-bg-hover: #75613a;
   --dark-mode-button-text-hover: #ffffff;
+
   --hero-circle-bg: #927a49;
   --hero-circle-text: #ece6d6;
   --hero-circle-border: #b89e6a;
+
   --dark: #171717;
   --dark-text: #171717;
+
   --button-dark-bg: #5f5133;
   --button-dark-text: #f2f0eb;
   --button-dark-active-bg: #7c6a43c9;
   --button-dark-active-text: #5c4d2d;
   --button-dark-shadow: #443d30;
+
   --dark-section: #8d774f88;
   --dark-section-text: #ffffff;
-  --accent: #9a5b45;
+
   --header-start: #f3f1ec;
   --header-middle: #f3f1eca6;
   --header-end: #f3f1ec00;
+
   --contact-background: #d6d1c7;
+
   --project-background: #d6d1c7;
   --project-line: #77736b;
   --project-dark: #222222;
+
   --timeline-border: #e4d3b3;
   --timeline-muted: #583f0c;
   --timeline-text: #aaa69e;
+
   --transition-fast: 0.25s ease;
   --transition: 0.35s ease;
   --transition-slow: 0.5s ease;
 }
 
 body.dark-mode {
-  --background: #151515;
-  --surface: #202020;
-  --text: #f2f0eb;
-  --muted: #9d9992;
-  --border: #383838;
+  --background: #111110;
+  --surface: #191918;
+  --elevated-surface: #242321;
+
+  --text: #f2eee6;
+  --secondary-text: #9d9589;
+
+  --accent: #a56850;
+  --secondary-accent: #967b52;
+  ----soft-bronze: #b39b78;
+
+  --muted: #9d9589;
+  --border: #34312c;
+
   --dark-mode-button-text: #ece7dd;
   --dark-mode-button-bg: #202020;
   --dark-mode-button-bg-hover: #ffffff;
   --dark-mode-button-text-hover: #61502b;
+
   --hero-circle-bg: #6b5f4c;
   --hero-circle-text: #ffffff;
   --hero-circle-border: #776c55;
+
   --dark: #090909;
+
   --button-dark-bg: #202020;
   --button-dark-text: #f2f0eb;
   --button-dark-active-bg: #151515;
   --button-dark-active-text: #9a5b45;
   --button-dark-shadow: #88858077;
+
   --dark-section: #29251f;
   --dark-section-text: #f2f0eb;
+
   --timeline-border: #494237;
   --timeline-muted: #c4ad83;
   --timeline-text: #aaa69e;
+
   --my-name-color: #f2f0ebe6;
   --my-name-color-hover: #f2f0ebf2;
+
   --header-start: #151515;
   --header-middle: #151515a6;
   --header-end: #15151500;
+
   --contact-background: #242321;
+
   --project-background: #292929;
   --project-line: #66635d;
   --project-dark: #111111;
@@ -296,7 +333,7 @@ a:focus-visible {
 }
 
 .eyebrow {
-  color: var(--muted);
+  color: var(--secondary-accent);
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -316,12 +353,21 @@ a:focus-visible {
   font-weight: 600;
 }
 
+#hero-title > em {
+  color: var(--secondary-text);
+}
+
 .hero-description {
   max-width: 530px;
-  color: var(--muted);
+  color: var(--secondary-text);
   font-size: 16px;
   line-height: 1.8;
   margin-top: 10px;
+}
+
+.hero-description > b {
+  color: var(--text);
+  opacity: 0.7;
 }
 
 .hero-buttons {
@@ -378,7 +424,7 @@ a:focus-visible {
   transition:
     color var(--transition-fast),
     border-color var(--transition-fast);
-  color: var(--text-active);
+  color: var(--text-active) !important;
   border-bottom: 1.5px solid var(--text-active);
   text-shadow: var(--text-sh adow-active);
 }
@@ -532,19 +578,26 @@ a:focus-visible {
   max-width: 720px;
   width: 100%;
   font-size: clamp(20px, 2.2vw, 40px);
-  line-height: 1.2;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
+  color: var(--text);
+  opacity: 0.7;
+  font-weight: 500;
 }
 
 .about-intro p:last-child {
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.6;
-  letter-spacing: -0.02em;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.05em;
   margin-top: 25px;
+  font-weight: 400;
+  color: var(--text);
+  opacity: 0.6;
 }
 
 .about-intro strong {
   font-weight: 600;
+  color: var(--muted);
+  opacity: 0.8;
 }
 
 .about-content {
@@ -578,7 +631,7 @@ a:focus-visible {
 }
 
 .about-detail:first-child {
-  border-right: 0;
+  border-left: 1px solid var(--border);
 }
 
 .about-detail-number {
